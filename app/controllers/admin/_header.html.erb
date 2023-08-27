@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-12">
+    <div class="logo"></div>
+    <div class="nav">
+      <input id="drawer-input" class="drawer-hidden" type="checkbox">
+      <label for="drawer-input" class="drawer-open row justify-content-center"><span></span></label>
+      <nav class="nav-content">
+        <ul class="nav-list text-center mt-5">
+          <li class="nav-item"><%= link_to 'Mypage', user_path(current_user), class: "text-light" %></li>
+          <li class="nav-item"><%= link_to 'Hobbies', hobbies_path, class: "text-light" %></li>
+          <li class="nav-item"><%= link_to 'User', users_path, class: "text-light" %></li>
+          <li class="nav-item"><%= link_to 'Group', groups_path, class: "text-light" %></li>
+          <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-light" %></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
