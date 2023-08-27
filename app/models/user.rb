@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :hobbies
+  has_many :post_hobbies
   has_many :comments,    dependent: :destroy
   has_many :favorites,   dependent: :destroy
   has_many :group_users, dependent: :destroy
@@ -12,6 +12,6 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
-  validates :name,         length: { minimum:2, maximum:20 }, uniqueness: true
-  validates :introduction, length: {maximum:50}
+  validates :name,  length: { minimum:2, maximum:20 }, uniqueness: true
+  validates :hobby, presence: true
 end
