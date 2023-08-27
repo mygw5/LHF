@@ -11,6 +11,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+
+    </header>
+
+    <main>
+      <div class="container-fuild">
+        <p class="<%= flash[:color] %>"><%= notice %></p>
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer>
+
+    </footer>
   </body>
 </html>
