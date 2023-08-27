@@ -1,6 +1,6 @@
-class CreateHobbies < ActiveRecord::Migration[6.1]
+class CreatePostHobbies < ActiveRecord::Migration[6.1]
   def change
-    create_table :hobbies do |t|
+    create_table :post_hobbies do |t|
       t.string :title
       t.text   :text
 

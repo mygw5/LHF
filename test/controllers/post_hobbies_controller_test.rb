@@ -1,23 +1,23 @@
 require "test_helper"
 
-class HobbiesControllerTest < ActionDispatch::IntegrationTest
+class PostHobbiesControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get hobbies_new_url
+    get post_hobbies_new_url
     assert_response :success
   end
 
   test "should get index" do
-    get hobbies_index_url
+    get post_hobbies_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get hobbies_show_url
+    get post_hobbies_show_url
     assert_response :success
   end
 
   test "should get edit" do
-    get hobbies_edit_url
+    get post_hobbies_edit_url
     assert_response :success
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_27_124532) do
+ActiveRecord::Schema.define(version: 2023_08_27_141528) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 2023_08_27_124532) do
   end
 
   create_table "hobbies", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "post_hobbies", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.datetime "created_at", precision: 6, null: false

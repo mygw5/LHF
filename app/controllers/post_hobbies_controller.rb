@@ -1,4 +1,4 @@
-class HobbiesController < ApplicationController
+class PostHobbiesController < ApplicationController
   def new
   end
 
