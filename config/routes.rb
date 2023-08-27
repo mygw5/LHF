@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
     resources :hobbies do
       resources :comments,  only: [:create, :destroy]
-      resources :favorites, only: [:create, :destroy]
+      resources :favorites, only: [:index, :create, :destroy]
     end
     resources :users, only: [:show, :edit, :update] do
       get "confirm_withdraw"
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
      resources :comments, only: [:destroy]
    end
    resources :tags,    only: [:index, :create, :edit, :update]
-   resources :users,   only: [:index, :show, :edit, :update]
+   resources :users,   only: [:show, :edit, :update]
    resources :groups, only: [:index, :show, :edit, :update] do
      resources :chats, only: [:create]
    end

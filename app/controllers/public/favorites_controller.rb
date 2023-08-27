@@ -1,4 +1,9 @@
 class Public::FavolitesController < ApplicationController
+
+  def index
+
+  end
+
   def create
   end
 
