@@ -10,4 +10,8 @@ class PostHobbiesController < ApplicationController
 
   def edit
   end
+
+  def drafts
+
+  end
 end

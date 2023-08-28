@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -10,4 +11,6 @@ class UsersController < ApplicationController
 
   def confirm_withdraw
   end
+
+
 end

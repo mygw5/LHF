@@ -7,9 +7,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string  :email,              null: false, default: ""
       t.string  :encrypted_password, null: false, default: ""
       t.string  :name,               null: false, default: ""
-      t.boolean :is_deleted,                      default: false
+      t.boolean :is_deleted,         null: false, default: false
       t.boolean :admin,                           default: false
-      t.string  :hobby,              null: false
+      t.string  :hobby
 
       ## Recoverable
       t.string   :reset_password_token

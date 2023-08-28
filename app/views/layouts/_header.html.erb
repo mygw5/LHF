@@ -1,28 +1,30 @@
-<div class="row justify-content-end">
-  <div class="col-1">
-    <div class="nav">
-      <input id="drawer-input" class="drawer-hidden" type="checkbox">
-      <label for="drawer-input" class="drawer-open row justify-content-center"><span></span></label>
-      <nav class="nav-content">
-        <ul class="nav-list text-center mt-5">
-          <% if admin_signed_in? %>
-            <li class="nav-item"><%= link_to 'ユーザ一覧', admin_root_path, class: "text-light" %></li>
-            <li class="nav-item"><%= link_to '投稿一覧', admin_hobbies_path, class: "text-light" %></li>
-            <li class="nav-item"><%= link_to 'グループ一覧', admin_groups_path, class: "text-light" %></li>
-            <li class="nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "text-light" %></li>
-          <% elsif user_signed_in? %>
-            <li class="nav-item"><%= link_to 'マイページ', users_path(current_user), class: "text-light" %></li>
-            <li class="nav-item"><%= link_to '投稿一覧', hobbies_path, class: "text-light" %></li>
-            <li class="nav-item"><%= link_to 'グループ', groups_path, class: "text-light" %></li>
-            <li class="nav-item"><%= link_to 'お気に入り', favorites_path, class: "text-light" %></li>
-            <li class="nav-item"><%= link_to "ログアウト", destroy_users_session_path, method: :delete, class: "text-light" %></li>
-          <% else %>
-            <li class="nav-item"><%= link_to '投稿一覧', hobbies_path, class: "text-light" %></li>
-            <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: "text-light" %></li>
-            <li class="nav-item"><%= link_to "ログイン", user_session_path, class: "text-light" %></li>
-          <% end %>
-        </ul>
-      </nav>
+<% if user_signed_in? %>
+  <div class="row justify-content-end">
+    <div class="col-1">
+      <div class="nav">
+        <input id="drawer-input" class="drawer-hidden" type="checkbox">
+        <label for="drawer-input" class="drawer-open row justify-content-center"><span></span></label>
+        <nav class="nav-content">
+          <ul class="nav-list text-center mt-5">
+            <% if current_user.admin? %>
+              <li class="nav-item"><%= link_to 'ユーザ一覧', users_path, class: "text-light" %></li>
+              <li class="nav-item"><%= link_to '投稿一覧', post_hobbies_path, class: "text-light" %></li>
+              <li class="nav-item"><%= link_to 'グループ一覧', groups_path, class: "text-light" %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-light" %></li>
+            <% elsif current_user == @user %>
+              <li class="nav-item"><%= link_to 'マイページ', user_path(current_user), class: "text-light" %></li>
+              <li class="nav-item"><%= link_to '投稿一覧', post_hobbies_path, class: "text-light" %></li>
+              <li class="nav-item"><%= link_to 'グループ', groups_path, class: "text-light" %></li>
+              <li class="nav-item"><%= link_to 'お気に入り', favorites_post_hobbies_path, class: "text-light" %></li>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-light" %></li>
+            <% else %>
+              <li class="nav-item"><%= link_to '投稿一覧', post_hobbies_path, class: "text-light" %></li>
+              <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: "text-light" %></li>
+              <li class="nav-item"><%= link_to "ログイン", user_session_path, class: "text-light" %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
