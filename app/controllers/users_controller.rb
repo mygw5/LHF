@@ -7,9 +7,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post_hobbies = @user.post_hobby
+  end
+
+  def mypage
+    @user = current_user
+    @post_hobbies = @user.post_hobby
   end
 
   def edit
+  end
+
+  def update
+
   end
 
   def confirm_withdraw

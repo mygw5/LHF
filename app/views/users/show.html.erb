@@ -1,8 +1,12 @@
 <div class="row justify-content-center">
-  <%= render 'info' %>
-</div>
+  <div class="col-3">
+    <div>image</div>
   </div>
- </div>
+  <div class="col-7">
+    <h3><%= @user.name %>さんのページ</h3>
+    <%= render 'info', user: @user %>
+  </div>
+</div>
 <div class="row">
-
+  <%= render 'post', post_hobbies: @post_hobbies %>
 </div>
