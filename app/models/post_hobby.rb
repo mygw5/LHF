@@ -4,7 +4,7 @@ class PostHobby < ApplicationRecord
 
   has_many  :comments,  dependent: :destroy
   has_many  :favorites, dependent: :destroy
-  has_many  :post_tags, depandent: :destroy
+  has_many  :post_tags
 
   has_many  :tags, through: :post_tags, source: :tag
 

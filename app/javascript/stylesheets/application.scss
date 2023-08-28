@@ -1,8 +1,19 @@
 @use '~bootstrap/scss/bootstrap';
 
+.top {
+  height: 400px;
+  padding: 100px;
+}
+
 body {
   background-color: #fffaf0;
 }
+
+.editbtn {
+  background: success;
+}
+
+
 
 header {
   width: 100%;
@@ -68,7 +79,7 @@ header {
   top: 0;
   left: 100%;
   z-index: 99;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,1);
   transition: .5s;
 }
 
@@ -83,3 +94,5 @@ header {
 #drawer-input:checked ~ .nav-content {
   left: 0;
 }
+
+

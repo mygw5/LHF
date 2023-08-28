@@ -1,12 +1,26 @@
-<div class="row">
-  <div class="col-2">
-    <p>名前</p>
-    <p>趣味</p>
-    <p>グループ</p>
-  </div>
-  <div class="col-10">
-    <p><%= @user.name %></p>
-    <p><%= @user.hobby %></p>
-    <p></p>
-  </div>
-</div>
+<table>
+  <tr>
+    <th>名前</th>
+    <td><%= user.name %></td>
+  </tr>
+  <tr>
+    <th>趣味</th>
+    <td><%= user.hobby %></td>
+  </tr>
+  <tr>
+    <th>グループ名</th>
+    <td>所属グループ</td>
+  </tr>
+  <% if current_user.admin? %>
+    <tr>
+      <th>会員ステータス</th>
+      <td><%= user.is_deleted %></td>
+    </tr>
+  <% end %>
+  <% if current_user == user || current_user.admin? %>
+    <tr>
+      <th></th>
+      <td class="editbtn"><%= link_to '編集する', edit_user_path(user) %></td>
+    </tr>
+  <% end %>
+</table>
