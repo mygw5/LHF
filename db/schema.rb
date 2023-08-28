@@ -13,66 +13,60 @@
 ActiveRecord::Schema.define(version: 2023_08_27_141528) do
 
   create_table "chats", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
-    t.text "message"
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
+    t.text "message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "hobby_id"
-    t.text "comment"
+    t.integer "user_id", null: false
+    t.integer "hobby_id", null: false
+    t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "hobby_id"
+    t.integer "user_id", null: false
+    t.integer "hobby_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "group_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "groups", force: :cascade do |t|
     t.integer "owner_id"
-    t.string "name"
-    t.text "introduction"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "hobbies", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
+    t.string "name", null: false
+    t.text "introduction", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "post_hobbies", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
+    t.string "title", null: false
+    t.text "text", null: false
+    t.boolean "status", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "post_tags", force: :cascade do |t|
-    t.integer "hobby_id"
-    t.integer "tag_id"
+    t.integer "hobby_id", null: false
+    t.integer "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "tag"
+    t.string "tag", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -81,8 +75,9 @@ ActiveRecord::Schema.define(version: 2023_08_27_141528) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "name", default: "", null: false
-    t.boolean "is_deleted", default: false
+    t.boolean "is_deleted", default: false, null: false
     t.boolean "admin", default: false
+    t.string "hobby"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
