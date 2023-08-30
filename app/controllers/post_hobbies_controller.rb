@@ -3,6 +3,7 @@ class PostHobbiesController < ApplicationController
 
   def new
     @post_hobby = PostHobby.new
+    @published = @post_hobby.published?
   end
 
   def create
@@ -38,6 +39,21 @@ class PostHobbiesController < ApplicationController
   end
 
   def edit
+    @published = @post_hobby.published?
+  end
+
+  def update
+    if @post_hobby.update(post_hobby_params)
+      if params[:commit] == "下書き保存"
+        @post_hobby.update(status: :draft)
+        redirect_to drafts_post_hobbies_path
+      else
+        @post_hobby.update(status: :published)
+        redirect_to post_hobbies_path
+      end
+    else
+        render :edit
+    end
   end
 
   def drafts
