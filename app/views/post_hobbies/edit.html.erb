@@ -1,2 +1,6 @@
-<h1>PostHobbies#edit</h1>
-<p>Find me in app/views/post_hobbies/edit.html.erb</p>
+<div class="row">
+  <div class="col-5 offset-2">
+    <h3>投稿編集画面</h3>
+    <%= render 'form', post_hobby: @post_hobby, isDraft: @isDraft, tag_list: @tag_list %>
+  </div>
+</div>

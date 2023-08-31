@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root to: "homes#top"
   resources :post_hobbies do
-    get "drafts"
+    get "drafts", on: :collection
     resources :comments,  only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]
     get :favorites, on: :collection
@@ -20,10 +20,6 @@ Rails.application.routes.draw do
   end
 
   resources :searches, only: [:index]
-
-  resources :tags, only: [:index, :create, :show, :edit, :update] do
-    resources :post_tags, only: [:create, :destroy]
-  end
 
   resources :groups, only: [:new, :create, :index, :show, :edit, :update] do
     resources :group_users, only: [:create, :destroy]

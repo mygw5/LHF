@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-10 offset-1">
+    <h3>下書き</h3>
+    <table class="table">
+      <% @draft_post_hobbies.each do |draft| %>
+        <tr>
+          <td><%= image_tag draft.get_image, size: '200x100', class: "image" %></td>
+          <td><%= draft.title %></td>
+          <td><%= draft.text %></td>
+          <td><%= link_to '編集する', edit_post_hobby_path(draft), class: "text-primary" %></td>
+          <td><%= draft.post_status_i18n %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
