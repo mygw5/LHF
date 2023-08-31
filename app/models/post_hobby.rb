@@ -9,13 +9,14 @@ class PostHobby < ApplicationRecord
 
   has_one_attached :image, dependent: :destroy
 
-  validates  :title, presence: true
-  validates  :text,  presence: true, length:{maximum:200}
+  validates  :title,    presence: true
+  validates  :text,     presence: true, length:{maximum:200}
 
-  enum status: { published: 0, draft: 1 }
+
+  enum post_status: { published: 0, draft: 1 }
 
   def save_draft
-    self.status = :draft
+    self.post_status = :draft
     save(validate: false)
   end
 

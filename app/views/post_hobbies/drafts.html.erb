@@ -8,6 +8,7 @@
           <td><%= draft.title %></td>
           <td><%= draft.text %></td>
           <td><%= link_to '編集する', edit_post_hobby_path(draft), class: "text-primary" %></td>
+          <td><%= draft.post_status_i18n %></td>
         </tr>
       <% end %>
     </table>

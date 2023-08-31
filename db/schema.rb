@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2023_08_29_062423) do
   create_table "post_hobbies", force: :cascade do |t|
     t.string "title", null: false
     t.text "text", null: false
-    t.string "status", default: "0", null: false
+    t.integer "post_status", default: 0, null: false
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
