@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index,:show, :edit, :update] do
-    get   "mypage", on: :collection
     get   "confirm_withdraw"
     patch "withdraw"
   end
