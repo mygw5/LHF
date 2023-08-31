@@ -13,6 +13,7 @@ class PostHobby < ApplicationRecord
   validates  :text,     presence: true, length:{maximum:200}
 
 
+
   enum post_status: { published: 0, draft: 1 }
 
   def save_draft
@@ -40,9 +41,9 @@ class PostHobby < ApplicationRecord
 
     # Create new taggings:
     new_tags.each do |new_name|
-      tag = Tag.find_or_create_by(name:new_name)
+      post_hobby_tag = Tag.find_or_create_by(name:new_name)
       # 配列に保存
-      self.tags << tag
+      self.tags << post_hobby_tag
     end
   end
 

@@ -38,18 +38,25 @@ class PostHobbiesController < ApplicationController
   def edit
     @post_hobby = PostHobby.find(params[:id])
     @isDraft = @post_hobby.draft?
+    @tag_list=@post_hobby.tags.pluck(:name).join(',')
   end
 
   def update
     @post_hobby = PostHobby.find(params[:id])
+    tag_list = params[:post_hobby][:tag_name].split(',')
     if @post_hobby.update(post_hobby_params)
       if params[:commit] == "下書き保存"
         @post_hobby.update(post_status: :draft)
         redirect_to post_hobbies_path, notice: "下書きを保存しました。"
       else
         @post_hobby.update(post_status: :published)
+        @old_relations = PostTag.where(post_hobby_id: @post_hobby.id)
+        @old_relations.each do |relation|
+          relation.delete
+        end
+        @post_hobby.save_tags(tag_list)
         redirect_to @post_hobby, notice: "投稿を更新しました。"
-     end
+      end
     else
       render :edit
     end

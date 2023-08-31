@@ -4,7 +4,7 @@
     <h4 class="card-title"><%= link_to obj.title, post_hobby_path(obj) %></h4>
     <p class="card-text">
       <%= obj.text %>
-      <%= obj.tags.map(&:name).join(', ') %>
+      <%= obj.tags.map(&:name).join(',') %>
       <%= obj.post_status_i18n %>
     </p>
 
