@@ -1,8 +1,19 @@
-@use '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
+
+.top {
+  height: 400px;
+  padding: 100px;
+}
 
 body {
   background-color: #fffaf0;
 }
+
+.editbtn {
+  background: success;
+}
+
+
 
 header {
   width: 100%;
@@ -68,12 +79,13 @@ header {
   top: 0;
   left: 100%;
   z-index: 99;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,1);
   transition: .5s;
 }
 
 .nav-list {
   list-style: none;
+  text-align: center;
 }
 
 .nav-item {
@@ -83,3 +95,30 @@ header {
 #drawer-input:checked ~ .nav-content {
   left: 0;
 }
+
+.card-img {
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  object-fit: cover;
+}
+
+.post{
+  .card {
+  width: 250px;
+  margin: 0 10px 20px;
+  }
+
+  .card-img {
+    width: 200px;
+    height: 150px;
+    margin: auto;
+    object-fit: cover;
+  }
+}
+
+
+
+
+
+

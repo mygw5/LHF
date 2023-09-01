@@ -16,8 +16,13 @@ class PostHobbiesController < ApplicationController
       end
     else
       @post_hobby = PostHobby.create(post_hobby_params.merge(user_id: current_user.id))
-      tag_list = params[:post_hobby][:tag_name].split(',')
-      if @post_hobby.save
+      tag_list = params[:post_hobby][:name].split(',')
+      if tag_list == []
+        tag = Tag.new()
+        tag.name = ""
+        tag.save
+        render :new
+      elsif @post_hobby.save
         @post_hobby.save_tags(tag_list)
         redirect_to post_hobby_path(@post_hobby)
       else
@@ -43,11 +48,16 @@ class PostHobbiesController < ApplicationController
 
   def update
     @post_hobby = PostHobby.find(params[:id])
-    tag_list = params[:post_hobby][:tag_name].split(',')
+    tag_list = params[:post_hobby][:name].split(',')
     if @post_hobby.update(post_hobby_params)
       if params[:commit] == "下書き保存"
         @post_hobby.update(post_status: :draft)
         redirect_to post_hobbies_path, notice: "下書きを保存しました。"
+      elsif tag_list == []
+       tag = Tag.new()
+        tag.name = ""
+        tag.save
+        render :edit
       else
         @post_hobby.update(post_status: :published)
         @old_relations = PostTag.where(post_hobby_id: @post_hobby.id)

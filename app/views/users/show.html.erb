@@ -1,2 +1,19 @@
-<h1><%= current_user.name %></h1>
-<p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
+<div class="row justify-content-center">
+  <div class="col-3">
+    <div>image</div>
+  </div>
+  <div class="col-7">
+    <% if current_user == @user %>
+      <h3>マイページ</h3>
+    <% else %>
+      <h3><%= @user.name %>さんのページ</h3>
+    <% end %>
+
+    <%= render 'info', user: @user %>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-10 d-flex flex-wrap post">
+    <%= render 'post_hobbies/index', obj: @post_hobby %>
+  </div>
+</div>
