@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @group = @user.groups
+    ##公開中の投稿のみ表示させる
+    @post_hobby = @user.post_hobbies.where(post_status: :published)
   end
 
   def mypage

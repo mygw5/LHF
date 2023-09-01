@@ -9,7 +9,9 @@
   </tr>
   <tr>
     <th>グループ名</th>
-    <td>所属グループ</td>
+    <td>
+      <%= user.groups %>
+    </td>
   </tr>
   <% if current_user.admin? %>
     <tr>
