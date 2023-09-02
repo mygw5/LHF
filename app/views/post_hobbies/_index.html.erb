@@ -1,17 +1,22 @@
 <% obj.each do |obj| %>
+
   <div class="card">
-    <%= image_tag obj.get_image, class: "card-img" %>
-    <h4 class="card-title"><%= link_to obj.title, post_hobby_path(obj) %></h4>
-    <div class="read-continuation">
-      <p class="card-text">
+    <input id="read" class="lower-btn" type="checkbox"/>
+    <label for="read" class="lower"></label>
+
+      <div class="card-head">
+        <%= image_tag obj.get_image %>
+      </div>
+
+      <div class="card-body">
+      <h4 class="card-title"><%= link_to obj.title, post_hobby_path(obj) %></h4>
+      <div class="card-text">
+        <p>
         <%= obj.text %>
-      </p>
-      <label>
-        <input type="checkbox"/>
-        続きを読む>>
-      </label>
         <%= obj.tags.map(&:name).join(',') %>
         <%= obj.post_status_i18n %>
+        </p>
+      </div>
     </div>
   </div>
 <% end %>
