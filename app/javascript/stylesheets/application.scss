@@ -1,13 +1,25 @@
-@import '~bootstrap/scss/bootstrap';
+@use '~bootstrap/scss/bootstrap';
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.body{
+ background: #ffefd5;
+}
 
 .top {
   height: 400px;
   padding: 100px;
 }
 
-body {
-  background-color: #fffaf0;
-}
+
+
 
 .editbtn {
   background: success;
@@ -95,30 +107,4 @@ header {
 #drawer-input:checked ~ .nav-content {
   left: 0;
 }
-
-.card-img {
-  width: 400px;
-  height: 300px;
-  text-align: center;
-  object-fit: cover;
-}
-
-.post{
-  .card {
-  width: 250px;
-  margin: 0 10px 20px;
-  }
-
-  .card-img {
-    width: 200px;
-    height: 150px;
-    margin: auto;
-    object-fit: cover;
-  }
-}
-
-
-
-
-
 
